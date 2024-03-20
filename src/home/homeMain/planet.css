@@ -1,0 +1,60 @@
+.planetContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  transform: rotatex(-20deg);
+  place-content: center;
+  height: 100vh;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+
+}
+.planetContainer img {
+  width: 300px;
+  /* height: 0px; */
+}
+.commonPlanet {
+  position: absolute;
+  /* top: 6rem; */
+  transition: 0.3s ease-in-out;
+}
+.planet1 p,
+.planet2 p,.planet3 p{
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000000;
+}
+.planet1 {
+  z-index: 1;
+ 
+}
+.planet2 {
+  z-index: 0;
+ 
+}
+.planet3{
+  
+  z-index: -1;
+}
+.planetMain {
+  display: flex;
+  align-items: center;
+}
+.planetMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.planetButton {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}

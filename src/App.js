@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import Home from "./home/home";
+import HomeMain from "./home/homeMain";
 
 function App() {
+  const [showVideo, setShowVideo] = useState(false);
+  const [mainHome, setMainHome] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if(showVideo){
+        setMainHome(true);
+      }
+      setShowVideo(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [showVideo]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {showVideo ? (
+        <img src="/gifAnimation.gif" className="glitchVideo" />
+      ) : (
+        <>
+          {mainHome ? (
+            <HomeMain />
+          ) : (
+            <Home setShowVideo={setShowVideo} showVideo={showVideo} />
+          )}
+        </>
+      )}
+
     </div>
   );
 }
