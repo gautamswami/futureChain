@@ -8,20 +8,15 @@ function App() {
   const [mainHome, setMainHome] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if(showVideo){
-        setMainHome(true);
-      }
-      setShowVideo(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
+    if (showVideo) {
+      setMainHome(true);
+    }
   }, [showVideo]);
   return (
     <div className="App">
-      {showVideo ? (
+      {/* {showVideo ? (
         <img src="/gifAnimation.gif" className="glitchVideo" />
-      ) : (
+      ) : ( */}
         <>
           {mainHome ? (
             <HomeMain />
@@ -29,8 +24,7 @@ function App() {
             <Home setShowVideo={setShowVideo} showVideo={showVideo} />
           )}
         </>
-      )}
-
+      {/* )} */}
     </div>
   );
 }
